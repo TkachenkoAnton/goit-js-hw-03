@@ -4,10 +4,19 @@ const user = {
   hobby: "html",
   name: "Mango",
   premium: true,
+  mood: "happy",
+  "full time": true,
 };
 
+user.premium = false;
+user.hobby = "skydiving";
+
+console.log(user);
+
 const keys = Object.keys(user);
-// Write code under this line
+for (const key of keys) {
+  message += `${key}: ${user[key]}\n`;
+}
 
 console.log(message);
 /*
