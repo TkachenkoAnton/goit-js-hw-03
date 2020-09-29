@@ -1,5 +1,20 @@
 const findBestEmployee = function (employees) {
-  // Write code under this line
+  // сделать из обьекта массив
+  const findProductiveEmploee = Object.values(employees);
+
+  // добавить переменную по которой будем определять самого эффективного сотрудника
+  const employee = findProductiveEmploee[0];
+  let bestEmployee = 0;
+
+  // перебрать массив
+  for (let productiveEmploee of findProductiveEmploee) {
+    if (productiveEmploee > employee) {
+      bestEmployee = productiveEmploee;
+    }
+    return bestEmployee;
+  }
+
+  // вернуть показатели самого эффективного сотрудника
 };
 
 // Объекты и ожидаемый результат
@@ -9,7 +24,7 @@ const developers = {
   helen: 1,
   lorence: 99,
 };
-//console.log(findBestEmployee(developers));
+console.log(findBestEmployee(developers));
 // 'lorence'
 
 const supports = {
