@@ -1,20 +1,42 @@
 const findBestEmployee = function (employees) {
   // сделать из обьекта массив
-  const findProductiveEmploee = Object.values(employees);
-
-  // добавить переменную по которой будем определять самого эффективного сотрудника
-  const employee = findProductiveEmploee[0];
-  let bestEmployee = 0;
+  const findEmploee = Object.keys(employees);
+  // console.log(findProductiveEmploee);
+  let bestEmploee;
+  // console.log(bestEmploee);
 
   // перебрать массив
-  for (let productiveEmploee of findProductiveEmploee) {
-    if (productiveEmploee > employee) {
-      bestEmployee = productiveEmploee;
+  for (let i = 0; i < findEmploee.length; i += 1) {
+    const itemFindEmploee = employees[findEmploee[i]];
+    bestEmploee = employees[findEmploee[0]];
+    // console.log(itemFindEmploee);
+
+    if (bestEmploee < itemFindEmploee) {
+      bestEmploee = findEmploee[i];
     }
-    return bestEmployee;
+
+    // вернуть показатели самого эффективного сотрудника
+    return bestEmploee;
   }
 
-  // вернуть показатели самого эффективного сотрудника
+  // // сделать из обьекта массив
+  // const findProductiveEmploee = Object.values(employees);
+
+  // // добавить переменную по которой будем определять самого эффективного сотрудника
+  // const employee = findProductiveEmploee[0];
+  // let bestEmployee;
+
+  // // перебрать массив
+  // for (let i = 0; i < findProductiveEmploee.length; i += 1) {
+  //   const itemEmployees = findProductiveEmploee[i];
+  //   if (itemEmployees >= employee) {
+  //     bestEmployee = itemEmployees;
+  //   }
+  // }
+
+  // // вернуть показатели самого эффективного сотрудника
+  // return bestEmployee;
+  // //
 };
 
 // Объекты и ожидаемый результат
