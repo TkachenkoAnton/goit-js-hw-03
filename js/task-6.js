@@ -1,4 +1,20 @@
-const calculateTotalPrice = function (array, prop) {};
+const calculateTotalPrice = function (array, prop) {
+  //Обьявить переменную для подстчета общей суммы
+  let totalPrice = 0;
+  // Перебрать массив
+  for (let obj of array) {
+    // Перебрать объект
+    for (let propKey in obj) {
+      // Если свойство объекта равняется значению параметра функции
+      // умножить цену на количество и прибавить
+      if (obj[propKey] === prop) {
+        totalPrice += obj.price * obj.quantity;
+      }
+    }
+  }
+  return totalPrice;
+  //Обьявить переменную для свойства значения
+};
 
 // Объекты и ожидаемый результат
 const products = [
@@ -11,14 +27,14 @@ const products = [
   { name: "Захват", price: 1200, quantity: 2 },
 ];
 
-//console.log(calculateTotalPrice(products, 'Радар'));
+console.log(calculateTotalPrice(products, "Радар"));
 // 9080
 
-//console.log(calculateTotalPrice(products, 'Сканер'));
+console.log(calculateTotalPrice(products, "Сканер"));
 // 10200
 
-//console.log(calculateTotalPrice(products, 'Захват'));
+console.log(calculateTotalPrice(products, "Захват"));
 // 2400
 
-//console.log(calculateTotalPrice(products, 'Дроид'));
+console.log(calculateTotalPrice(products, "Дроид"));
 // 2800
