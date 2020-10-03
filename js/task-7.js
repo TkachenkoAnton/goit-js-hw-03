@@ -60,7 +60,7 @@ const account = {
   //    * о том, что снятие такой суммы не возможно, недостаточно средств.
   //    */
   withdraw(amount) {
-    let massage = "";
+    let massage = " ";
     this.type = Transaction.WITHDRAW;
 
     if (amount > this.balance) {
@@ -119,6 +119,9 @@ account.deposit(4569);
 account.deposit(859);
 account.withdraw(1000);
 account.deposit(5632);
+account.deposit(8985);
+account.withdraw(2000);
+console.log(account.withdraw(2000));
 console.log(account.getTransactionTotal("deposit"));
 console.log(account.getTransactionTotal("withdraw"));
 console.log(account.getBalance());
