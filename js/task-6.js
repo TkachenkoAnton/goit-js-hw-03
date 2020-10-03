@@ -3,13 +3,10 @@ const calculateTotalPrice = function (array, prop) {
   let totalPrice = 0;
   // Перебрать массив
   for (let obj of array) {
-    // Перебрать объект
-    for (let propKey in obj) {
-      // Если свойство объекта равняется значению параметра функции
-      // умножить цену на количество и прибавить
-      if (obj[propKey] === prop) {
-        totalPrice += obj.price * obj.quantity;
-      }
+    // Если свойство объекта с ключем name равняется значению параметра prop
+    // умножить цену на количество и прибавить
+    if (obj.name === prop) {
+      totalPrice += obj.price * obj.quantity;
     }
   }
   return totalPrice;
