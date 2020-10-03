@@ -26,7 +26,9 @@ const account = {
     const transaction = {
       amount,
       type,
+      id: 1,
     };
+
     return transaction;
   },
 
@@ -38,8 +40,13 @@ const account = {
    */
   deposit(amount) {
     this.type = Transaction.DEPOSIT;
-    if ((this.balance += amount)) {
+    this.balance += amount;
+
+    let transactionArrays = this.transactions;
+    for (let obj of transactionArrays) {
+      obj.id += 1;
     }
+
     return this.transactions.push(this.createTransaction(amount, this.type));
   },
 
@@ -55,11 +62,18 @@ const account = {
   withdraw(amount) {
     let massage = "";
     this.type = Transaction.WITHDRAW;
+
     if (amount > this.balance) {
       return (massage = `Недостаточно средств для осуществления операции`);
     } else {
       this.balance -= amount;
     }
+
+    let transactionArrays = this.transactions;
+    for (let obj of transactionArrays) {
+      obj.id += 1;
+    }
+
     return this.transactions.push(this.createTransaction(amount, this.type));
   },
 
@@ -73,7 +87,15 @@ const account = {
   //   /*
   //    * Метод ищет и возвращает объект транзации по id
   //    */
-  //   getTransactionDetails(id) {},
+  getTransactionDetails(id) {
+    let transactionArrays = this.transactions;
+
+    for (let obj of transactionArrays) {
+      if (obj.id === id) {
+        return obj;
+      }
+    }
+  },
 
   //   /*
   //    * Метод возвращает количество средств
@@ -82,19 +104,23 @@ const account = {
   getTransactionTotal(type) {
     let totalSum = 0;
     let transactionArrays = this.transactions;
+
     for (let obj of transactionArrays) {
       if (obj.type === type) {
         totalSum += obj.amount;
       }
     }
+
     return `Количество средств ${type} = ${totalSum}`;
   },
 };
 
-account.deposit(900);
-account.deposit(900);
+account.deposit(4569);
+account.deposit(859);
 account.withdraw(1000);
-account.deposit(900);
+account.deposit(5632);
 console.log(account.getTransactionTotal("deposit"));
 console.log(account.getTransactionTotal("withdraw"));
 console.log(account.getBalance());
+console.log(account.getTransactionDetails(4));
+console.log(account.transactions);
