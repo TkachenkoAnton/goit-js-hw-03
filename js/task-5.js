@@ -1,17 +1,17 @@
 const getAllPropValues = function (array, prop) {
-  let propertyName = [];
+  let propertyValues = [];
   // Перебать массив
-  for (let key of array) {
-    // Проверить обьекты на наличие ключа
-    for (let propKey in key) {
+  for (let obj of array) {
+    // Проверить обьект на наличие ключа
+    for (let key in obj) {
       // Если ключ найден добавить его значение в массив
-      if (prop === propKey) {
-        propertyName.push(key[propKey]);
+      if (prop === key) {
+        propertyValues.push(obj[key]);
       }
     }
   }
   // Вернуть свойства ключей
-  return propertyName;
+  return propertyValues;
 };
 
 // Объекты и ожидаемый результат

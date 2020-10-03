@@ -9,6 +9,7 @@ const calculateTotalPrice = function (array, prop) {
       totalPrice += obj.price * obj.quantity;
     }
   }
+
   return totalPrice;
   //Обьявить переменную для свойства значения
 };
