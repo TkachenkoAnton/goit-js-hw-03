@@ -1,43 +1,19 @@
 const findBestEmployee = function (employees) {
-  // сделать из обьекта массив
-  const findEmploee = Object.keys(employees);
-  // console.log(findProductiveEmploee);
   let bestEmploee = "";
-  // console.log(bestEmploee);
-
+  // сделать из обьекта массив значений и найти самое большое
+  const bestIndicator = Math.max(...Object.values(employees));
+  // сделать массив ключей
+  const someEmploee = Object.keys(employees);
   // перебрать массив
-  for (let i = 0; i < findEmploee.length; i += 1) {
-    const itemFindEmploee = employees[findEmploee[i]];
-    bestEmploee = employees[findEmploee[0]];
-    console.log(typeof bestEmploee);
-    console.log(typeof itemFindEmploee);
-
-    if (bestEmploee < itemFindEmploee) {
-      bestEmploee = findEmploee[i];
+  for (let key of someEmploee) {
+    //сравнить значение ключей с наибольшим значением из массива значений
+    // если значение равняется вывсети его ключ
+    if (bestIndicator === employees[key]) {
+      bestEmploee = key;
     }
-
-    // вернуть показатели самого эффективного сотрудника
-    return bestEmploee;
   }
-
-  // // сделать из обьекта массив
-  // const findProductiveEmploee = Object.values(employees);
-
-  // // добавить переменную по которой будем определять самого эффективного сотрудника
-  // const employee = findProductiveEmploee[0];
-  // let bestEmployee;
-
-  // // перебрать массив
-  // for (let i = 0; i < findProductiveEmploee.length; i += 1) {
-  //   const itemEmployees = findProductiveEmploee[i];
-  //   if (itemEmployees >= employee) {
-  //     bestEmployee = itemEmployees;
-  //   }
-  // }
-
-  // // вернуть показатели самого эффективного сотрудника
-  // return bestEmployee;
-  // //
+  // вернуть показатели самого эффективного сотрудника
+  return bestEmploee;
 };
 
 // Объекты и ожидаемый результат
@@ -55,7 +31,7 @@ const supports = {
   mango: 17,
   ajax: 4,
 };
-//console.log(findBestEmployee(supports));
+console.log(findBestEmployee(supports));
 // 'mango'
 
 const sellers = {
@@ -64,5 +40,5 @@ const sellers = {
   kiwi: 19,
   chelsy: 38,
 };
-//console.log(findBestEmployee(sellers));
+console.log(findBestEmployee(sellers));
 // 'lux'
