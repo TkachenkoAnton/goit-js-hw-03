@@ -1,4 +1,18 @@
-const getAllPropValues = function (array, prop) {};
+const getAllPropValues = function (array, prop) {
+  let propertyName = [];
+  // Перебать массив
+  for (let key of array) {
+    // Проверить обьекты на наличие ключа
+    for (let propKey in key) {
+      // Если ключ найден добавить его значение в массив
+      if (prop === propKey) {
+        propertyName.push(key[propKey]);
+      }
+    }
+  }
+  // Вернуть свойства ключей
+  return propertyName;
+};
 
 // Объекты и ожидаемый результат
 const products = [
@@ -11,11 +25,11 @@ const products = [
   { name: "Захват", price: 1200, quantity: 2 },
 ];
 
-//console.log(getAllPropValues(products, 'name'));
+console.log(getAllPropValues(products, "name"));
 // ['Радар', 'Радар', 'Радар', 'Сканер', 'Сканер', 'Дроид', 'Захват']
 
-//console.log(getAllPropValues(products, 'quantity'));
+console.log(getAllPropValues(products, "quantity"));
 // [4, 2, 1, 1, 3, 7, 2]
 
-//console.log(getAllPropValues(products, 'category'));
+console.log(getAllPropValues(products, "category"));
 //  []
