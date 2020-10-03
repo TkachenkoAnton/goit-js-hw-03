@@ -37,8 +37,8 @@ const account = {
    * после чего добавляет его в историю транзакций
    */
   deposit(amount) {
+    this.type = Transaction.DEPOSIT;
     if ((this.balance += amount)) {
-      this.type = Transaction.DEPOSIT;
     }
     return this.transactions.push(this.createTransaction(amount, this.type));
   },
@@ -94,4 +94,7 @@ const account = {
 account.deposit(900);
 account.deposit(900);
 account.withdraw(1000);
+account.deposit(900);
+console.log(account.getTransactionTotal("deposit"));
+console.log(account.getTransactionTotal("withdraw"));
 console.log(account.getBalance());
