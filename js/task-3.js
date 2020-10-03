@@ -2,14 +2,15 @@ const findBestEmployee = function (employees) {
   // сделать из обьекта массив
   const findEmploee = Object.keys(employees);
   // console.log(findProductiveEmploee);
-  let bestEmploee;
+  let bestEmploee = "";
   // console.log(bestEmploee);
 
   // перебрать массив
   for (let i = 0; i < findEmploee.length; i += 1) {
     const itemFindEmploee = employees[findEmploee[i]];
     bestEmploee = employees[findEmploee[0]];
-    // console.log(itemFindEmploee);
+    console.log(typeof bestEmploee);
+    console.log(typeof itemFindEmploee);
 
     if (bestEmploee < itemFindEmploee) {
       bestEmploee = findEmploee[i];
