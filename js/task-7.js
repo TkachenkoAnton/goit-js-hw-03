@@ -11,6 +11,9 @@ const Transaction = {
  * Каждая транзакция это объект со свойствами: id, type и amount
  */
 
+// Создаем переменную под счетчик, чтобы для удобства тестирования создавать последовательные айди.
+let counter = 0;
+
 const account = {
   // Текущий баланс счета
   balance: 0,
@@ -23,10 +26,13 @@ const account = {
    * Принимает сумму и тип транзакции.
    */
   createTransaction(amount, type) {
+    // Создаем переменную для генерации последовательных id
+    let transId = (counter += 1);
+
     const transaction = {
       amount,
       type,
-      id: 1,
+      id: transId,
     };
 
     return transaction;
@@ -41,11 +47,6 @@ const account = {
   deposit(amount) {
     this.type = Transaction.DEPOSIT;
     this.balance += amount;
-
-    let transactionArrays = this.transactions;
-    for (let obj of transactionArrays) {
-      obj.id += 1;
-    }
 
     return this.transactions.push(this.createTransaction(amount, this.type));
   },
@@ -67,11 +68,6 @@ const account = {
       return (massage = `Недостаточно средств для осуществления операции`);
     } else {
       this.balance -= amount;
-    }
-
-    let transactionArrays = this.transactions;
-    for (let obj of transactionArrays) {
-      obj.id += 1;
     }
 
     return this.transactions.push(this.createTransaction(amount, this.type));
