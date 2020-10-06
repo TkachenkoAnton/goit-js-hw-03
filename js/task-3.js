@@ -1,5 +1,5 @@
 const findBestEmployee = function (employees) {
-  let bestEmploee = "";
+  let bestEmploee = '';
   // сделать из обьекта массив значений и найти самое большое
   const bestIndicator = Math.max(...Object.values(employees));
   // сделать массив ключей

@@ -1,15 +1,15 @@
-let message = "";
+let message = '';
 const user = {
   age: 20,
-  hobby: "html",
-  name: "Mango",
+  hobby: 'html',
+  name: 'Mango',
   premium: true,
-  mood: "happy",
-  "full time": true,
+  mood: 'happy',
+  'full time': true,
 };
 
 user.premium = false;
-user.hobby = "skydiving";
+user.hobby = 'skydiving';
 
 console.log(user);
 

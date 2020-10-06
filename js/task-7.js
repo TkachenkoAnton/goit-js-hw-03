@@ -3,8 +3,8 @@
  * Можно положить либо снять деньги со счета.
  */
 const Transaction = {
-  DEPOSIT: "deposit",
-  WITHDRAW: "withdraw",
+  DEPOSIT: 'deposit',
+  WITHDRAW: 'withdraw',
 };
 
 /*
@@ -61,7 +61,7 @@ const account = {
   //    * о том, что снятие такой суммы не возможно, недостаточно средств.
   //    */
   withdraw(amount) {
-    let massage = " ";
+    let massage = ' ';
     this.type = Transaction.WITHDRAW;
 
     if (amount > this.balance) {
@@ -118,8 +118,8 @@ account.deposit(5632);
 account.deposit(8985);
 account.withdraw(2000);
 console.log(account.withdraw(2000));
-console.log(account.getTransactionTotal("deposit"));
-console.log(account.getTransactionTotal("withdraw"));
+console.log(account.getTransactionTotal('deposit'));
+console.log(account.getTransactionTotal('withdraw'));
 console.log(account.getBalance());
 console.log(account.getTransactionDetails(4));
 console.log(account.transactions);
