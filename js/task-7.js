@@ -45,10 +45,11 @@ const account = {
    * после чего добавляет его в историю транзакций
    */
   deposit(amount) {
-    this.type = Transaction.DEPOSIT;
     this.balance += amount;
 
-    return this.transactions.push(this.createTransaction(amount, this.type));
+    return this.transactions.push(
+      this.createTransaction(amount, Transaction.DEPOSIT),
+    );
   },
 
   //   /*
@@ -61,8 +62,7 @@ const account = {
   //    * о том, что снятие такой суммы не возможно, недостаточно средств.
   //    */
   withdraw(amount) {
-    let massage = ' ';
-    this.type = Transaction.WITHDRAW;
+    let massage = '';
 
     if (amount > this.balance) {
       return (massage = `Недостаточно средств для осуществления операции`);
@@ -70,7 +70,9 @@ const account = {
       this.balance -= amount;
     }
 
-    return this.transactions.push(this.createTransaction(amount, this.type));
+    return this.transactions.push(
+      this.createTransaction(amount, Transaction.WITHDRAW),
+    );
   },
 
   //   /*
@@ -117,7 +119,8 @@ account.withdraw(1000);
 account.deposit(5632);
 account.deposit(8985);
 account.withdraw(2000);
-console.log(account.withdraw(2000));
+account.withdraw(1000);
+account.withdraw(5000);
 console.log(account.getTransactionTotal('deposit'));
 console.log(account.getTransactionTotal('withdraw'));
 console.log(account.getBalance());
